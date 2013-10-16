@@ -4,7 +4,7 @@
 #
 
 git "#{Chef::Config[:file_cache_path]}" do
-  repository "git://github.com:apigee/usergrid-stack.git"
+  repository "git://github.com/apigee/usergrid-stack.git"
   reference "master"
   action :checkout
 end
