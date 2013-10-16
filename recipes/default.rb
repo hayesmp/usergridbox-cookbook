@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
+puts "###### Maven version"
+puts node['maven']['3']['version']
+
 include_recipe 'apt'
 include_recipe 'build-essential'
 include_recipe 'curl'
