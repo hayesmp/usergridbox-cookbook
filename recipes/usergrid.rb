@@ -3,7 +3,7 @@
 # Recipe:: usergrid
 #
 
-git "#{Chef::Config[:file_cache_path]}" do
+git "#{Chef::Config[:file_cache_path]}/usergrid" do
   repository "git://github.com/apigee/usergrid-stack.git"
   reference "master"
   action :checkout
@@ -25,7 +25,7 @@ end
 #end
 
 execute "build usergrid-stack" do
-  cwd "#{Chef::Config[:file_cache_path]}/usergrid-stack"
+  cwd "#{Chef::Config[:file_cache_path]}/usergrid"
   command "mvn clean install -DskipTests=true"
 end
 
