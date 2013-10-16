@@ -26,7 +26,7 @@ end
 
 execute "build usergrid-stack" do
   cwd "#{Chef::Config[:file_cache_path]}/usergrid"
-  command "mvn clean install -DskipTests=true"
+  command "mvn clean install -DskipTests=true -e"
 end
 
 execute "start usergrid" do
