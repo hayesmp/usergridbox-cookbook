@@ -30,6 +30,6 @@ execute "build usergrid-stack" do
 end
 
 execute "start usergrid" do
-  cwd "#{Chef::Config[:file_cache_path]}/usergrid-stack/launcher"
+  cwd "#{Chef::Config[:file_cache_path]}/usergrid/launcher"
   command "java -jar target/usergrid-launcher-*.jar"
 end
