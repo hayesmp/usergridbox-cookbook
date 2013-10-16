@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-desc "Load and launch"
+#desc "Load and launch"
 task :load_and_launch => [:download_built, :launch] do
   puts "Just downloaded a prebuilt usergrid and launched it."
   puts "Maybe http://localhost:8880/?api_url=http://localhost:8080 will work!"
@@ -15,7 +15,7 @@ task :load_and_launch => [:download_built, :launch] do
   system('cat usergrid-stack/config/src/main/resources/usergrid-default.properties | grep "usergrid.test-account"')
 end
 
-desc "(re)build usergrid."
+#desc "(re)build usergrid."
 task :build do
   command = %(
     cd ~
@@ -30,7 +30,7 @@ task :build do
   system %(vagrant ssh --command "#{command}")
 end
 
-desc "(re)Launch usergrid."
+#desc "(re)Launch usergrid."
 task :launch do
   def nohupasize(command)
     "nohup #{command} > output.txt 2> output.err < /dev/null &"
@@ -44,7 +44,7 @@ task :launch do
   system %(vagrant ssh --command "#{command}")
 end
 
-desc "Add pre-built usergrid"
+#desc "Add pre-built usergrid"
 task :download_built do
   command = %(
     mkdir -p ~/issolated
@@ -55,7 +55,7 @@ task :download_built do
   system %(vagrant ssh --command "#{command}")
 end
 
-desc "Create a box with usergrid running."
+#desc "Create a box with usergrid running."
 task :create_vm do
   #system "vagrant up"
   system "rake load_and_launch"
