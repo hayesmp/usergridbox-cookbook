@@ -15,7 +15,7 @@ execute "build usergrid-stack" do
 end
 
 git "#{Chef::Config[:file_cache_path]}/usergrid-rest-apigee-sample" do
-  repository "git://github.com/apigee/usergrid-rest-apigee-sample.git"
+  repository "git://github.com/zznate/usergrid-rest-apigee-sample.git"
   reference "master"
   action :checkout
 end
