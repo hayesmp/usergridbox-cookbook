@@ -9,8 +9,9 @@ version          '0.1.0'
 supports 'ubuntu'
 supports 'debian'
 
-recipe 'usergrindbox', 'sets up a usergrid unbuntu server'
+recipe 'usergridbox', 'sets up a usergrid unbuntu server'
 recipe 'usergridbox::usergrind', 'recipe to setup usergrid'
+recipe "usergridbox::ruby", "setup a ruby version manager `rbenv`."
 
 depends 'apt'
 depends 'build-essential'
@@ -18,6 +19,7 @@ depends 'openssl'
 depends 'curl'
 depends 'git'
 depends 'java'
+depends 'rbenv'
 depends 'thrift'
 depends 'maven'
 depends 'nginx'
