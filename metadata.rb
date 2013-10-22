@@ -11,7 +11,7 @@ supports 'debian'
 
 recipe 'usergridbox', 'sets up a usergrid unbuntu server'
 recipe 'usergridbox::usergrind', 'recipe to setup usergrid'
-recipe "usergridbox::ruby", "setup a ruby version manager `rbenv`."
+#recipe "usergridbox::ruby", "setup a ruby version manager `rbenv`."
 
 depends 'apt'
 depends 'build-essential'
@@ -19,7 +19,7 @@ depends 'openssl'
 depends 'curl'
 depends 'git'
 depends 'java'
-depends 'rbenv'
+#depends 'rbenv'
 depends 'thrift'
 depends 'maven'
 depends 'nginx'
