@@ -19,6 +19,7 @@ include_recipe 'java'
 #include_recipe "usergridbox::ruby"
 include_recipe 'thrift'
 include_recipe 'maven'
+include_recipe 'cassandra'
 include_recipe 'cassandra::tarball'
 include_recipe 'tomcat'
 
