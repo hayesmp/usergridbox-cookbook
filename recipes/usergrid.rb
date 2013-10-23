@@ -3,15 +3,17 @@
 # Recipe:: usergrid
 #
 
-git "#{Chef::Config[:file_cache_path]}/usergrid" do
-  repository "git://github.com/apigee/usergrid-stack.git"
-  reference "master"
-  action :checkout
-end
+unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
+  git "#{Chef::Config[:file_cache_path]}/usergrid" do
+    repository "git://github.com/apigee/usergrid-stack.git"
+    reference "master"
+    action :checkout
+  end
 
-execute "build usergrid-stack" do
-  cwd "#{Chef::Config[:file_cache_path]}/usergrid"
-  command "mvn clean install -DskipTests=true -e"
+  execute "build usergrid-stack" do
+    cwd "#{Chef::Config[:file_cache_path]}/usergrid"
+    command "mvn clean install -DskipTests=true -e"
+  end
 end
 
 #rm -rf /var/lib/tomcat6/webapps/ROOT
@@ -25,14 +27,16 @@ execute "copy usergrid war into tomcat" do
 end
 
 #Edit /var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties
-  #cassandra.url=localhost:9160
-  #cassandra.username=
-  #cassandra.password=
+#cassandra.url=localhost:9160
+#cassandra.username=
+#cassandra.password=
 
-  ## SysAdmin login
-  #usergrid.sysadmin.login.name=
-  #usergrid.sysadmin.login.email=
-  #usergrid.sysadmin.login.password=
-  #usergrid.sysadmin.login.allowed=false
+## SysAdmin login
+#usergrid.sysadmin.login.name=
+#usergrid.sysadmin.login.email=
+#usergrid.sysadmin.login.password=
+#usergrid.sysadmin.login.allowed=false
 
-  #Go to <ip address>:8080/setup
+#Go to <ip address>:8080/setup
+
+
