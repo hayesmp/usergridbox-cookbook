@@ -15,11 +15,8 @@ execute "build usergrid-stack" do
 end
 
 #rm -rf /var/lib/tomcat6/webapps/ROOT
-file "/var/lib/tomcat6/webapps/ROOT" do
-  owner "root"
-  group "root"
-  #mode "0755"
-  action :delete
+execute "delete default tomcat ROOT.war" do
+  command "rm -rf /var/lib/tomcat6/webapps/ROOT"
 end
 
 #cp /var/chef/cache/usergrid/rest/target/ROOT.war /var/lib/tomcat6/webapps/
