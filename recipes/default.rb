@@ -15,7 +15,7 @@ include_recipe 'build-essential'
 include_recipe 'openssl'
 include_recipe 'curl'
 include_recipe 'git'
-include_recipe 'java'
+include_recipe 'java::oracle'
 #include_recipe "usergridbox::ruby"
 include_recipe 'thrift'
 include_recipe 'maven'

@@ -26,7 +26,7 @@ execute "copy usergrid war into tomcat" do
   command "cp /var/chef/cache/usergrid/rest/target/ROOT.war /var/lib/tomcat6/webapps/"
 end
 
-#Edit /var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties
+#vi /var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties
 #cassandra.url=localhost:9160
 #cassandra.username=
 #cassandra.password=
