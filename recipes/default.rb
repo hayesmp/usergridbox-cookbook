@@ -19,10 +19,7 @@ include_recipe 'java'
 #include_recipe "usergridbox::ruby"
 include_recipe 'thrift'
 include_recipe 'maven'
-include_recipe 'cassandra'
-include_recipe 'cassandra::authentication'
-#include_recipe 'cassandra::autoconf'
-include_recipe 'cassandra::bintools'
+include_recipe 'cassandra::tarball'
 include_recipe 'tomcat'
 
 include_recipe 'usergridbox::usergrid'
