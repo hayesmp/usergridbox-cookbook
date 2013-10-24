@@ -15,7 +15,7 @@ include_recipe 'git'
 include_recipe 'java'
 include_recipe 'thrift'
 include_recipe 'maven'
-include_recipe 'cassandra::tarball'
+include_recipe 'cassandra'#::tarball'
 include_recipe 'tomcat'
 
 include_recipe 'usergridbox::usergrid'
