@@ -3,3 +3,4 @@ node.override['maven']['3']['url'] = 'http://apache.mirrors.tds.net/maven/maven-
 node.override['thrift']['configure_options'] = ['--without-ruby']
 node.override['java']['oracle']['accept_oracle_download_terms'] = true
 node.override['java']['jdk_version'] = '7'
+node.override['java']['install_flavor'] = 'oracle'
