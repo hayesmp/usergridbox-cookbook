@@ -5,5 +5,5 @@ node.override['java']['oracle']['accept_oracle_download_terms'] = true
 node.override['java']['jdk_version'] = '7'
 node.override['java']['install_flavor'] = 'oracle'
 #node.override['cassandra']['listen_address'] = 'localhost'
-node.override['cassandra']['version'] = '1.2.11'
+node.override['cassandra']['version'] = '1.1.11'
 #node.override['cassandra']['rpc_port'] = 'localhost'
