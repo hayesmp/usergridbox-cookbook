@@ -5,6 +5,7 @@
 
 include_recipe "java"
 include_recipe "maven"
+include_recipe "tomcat"
 
 unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
   git "#{Chef::Config[:file_cache_path]}/usergrid" do
