@@ -3,6 +3,8 @@
 # Recipe:: usergrid
 #
 
+include_recipe "java"
+
 unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
   git "#{Chef::Config[:file_cache_path]}/usergrid" do
     repository "git://github.com/apigee/usergrid-stack.git"
@@ -38,5 +40,3 @@ end
 #usergrid.sysadmin.login.allowed=false
 
 #Go to <ip address>:8080/setup
-
-
