@@ -7,7 +7,7 @@ include_recipe "java"
 include_recipe "maven"
 include_recipe "tomcat"
 
-unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
+#unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
   git "#{Chef::Config[:file_cache_path]}/usergrid" do
     repository "git://github.com/apigee/usergrid-stack.git"
     reference "master"
@@ -18,7 +18,7 @@ unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-
     cwd "#{Chef::Config[:file_cache_path]}/usergrid"
     command "mvn clean install -DskipTests=true -e"
   end
-end
+#end
 
 #rm -rf /var/lib/tomcat6/webapps/ROOT
 execute "delete default tomcat ROOT.war" do
