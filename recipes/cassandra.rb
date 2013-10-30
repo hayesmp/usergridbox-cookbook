@@ -40,5 +40,5 @@ bash "extract #{tmp}" do
 end
 
 execute "start cassandra" do
-  command "#{Chef::Config[:file_cache_path]}/bin/cassandra"
+  command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11-bin/bin/cassandra"
 end
