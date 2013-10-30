@@ -29,7 +29,7 @@ end
 
 bash "extract #{tmp}" do
   user "root"
-  cwd  "/tmp"
+  cwd  "#{Chef::Config[:file_cache_path]}"
 
   code <<-EOS
     rm -rf #{tarball_dir}
