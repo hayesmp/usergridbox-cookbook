@@ -12,7 +12,7 @@ include_recipe 'tomcat'
 include_recipe 'java::oracle'
 include_recipe 'thrift'
 include_recipe 'maven'
-include_recipe 'cassandra'
+include_recipe 'usergridbox::cassandra'
 
 #unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
   git "#{Chef::Config[:file_cache_path]}/usergrid" do
