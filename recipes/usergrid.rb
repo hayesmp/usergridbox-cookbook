@@ -14,18 +14,25 @@ include_recipe 'thrift'
 include_recipe 'maven'
 include_recipe 'usergridbox::cassandra'
 
-#unless File.exist?("/var/chef/cache/usergrid/config/src/main/resources/usergrid-default.properties")
-  git "#{Chef::Config[:file_cache_path]}/usergrid" do
-    repository "git://github.com/apigee/usergrid-stack.git"
-    reference "master"
-    action :checkout
-  end
+git "#{Chef::Config[:file_cache_path]}/usergrid" do
+  repository "git://github.com/apigee/usergrid-stack.git"
+  reference "master"
+  action :checkout
+end
 
-  execute "build usergrid-stack" do
-    cwd "#{Chef::Config[:file_cache_path]}/usergrid"
-    command "mvn clean install -DskipTests=true -e"
-  end
-#end
+execute "delete stock usergrid-default.properties file" do
+  command "rm #{Chef::Config[:file_cache_path]}/usergrid/config/src/main/resources/usergrid-default.properties"
+end
+
+template "#{Chef::Config[:file_cache_path]}/usergrid/config/src/main/resources/usergrid-default.properties" do
+  source "usergrid-default.properties.erb"
+  variables ({:sysadmin_name => "admin", :sysadmin_email => "admin@usergrid.com", :sysadmin_password => "admin_pass"})
+end
+
+execute "build usergrid-stack" do
+  cwd "#{Chef::Config[:file_cache_path]}/usergrid"
+  command "mvn clean install -DskipTests=true -e"
+end
 
 #rm -rf /var/lib/tomcat6/webapps/ROOT
 execute "delete default tomcat ROOT.war" do
