@@ -3,16 +3,16 @@
 # Recipe:: usergrid
 #
 include_recipe 'apt'
-include_recipe 'build-essential'
-include_recipe 'openssl'
-include_recipe 'emacs'
+#include_recipe 'build-essential'
+#include_recipe 'openssl'
+#include_recipe 'emacs'
 include_recipe 'curl'
 include_recipe 'git'
 include_recipe 'tomcat'
-include_recipe 'java'
-include_recipe 'java::oracle'
-include_recipe 'thrift'
-include_recipe 'maven'
+#include_recipe 'java'
+#include_recipe 'java::oracle'
+#include_recipe 'thrift'
+#include_recipe 'maven'
 include_recipe 'usergridbox::cassandra'
 
 git "#{Chef::Config[:file_cache_path]}/usergrid" do
@@ -32,7 +32,7 @@ end
 
 execute "build usergrid-stack" do
   cwd "#{Chef::Config[:file_cache_path]}/usergrid"
-  command "mvn clean install -DskipTests=true -e -X"
+  command "mvn clean install -DskipTests=true -e"
 end
 
 #rm -rf /var/lib/tomcat6/webapps/ROOT
