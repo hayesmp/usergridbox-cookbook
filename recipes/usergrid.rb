@@ -44,7 +44,3 @@ end
 execute "copy usergrid war into tomcat" do
   command "cp /var/chef/cache/usergrid/rest/target/ROOT.war /var/lib/tomcat6/webapps/"
 end
-
-execute "initialize database" do
-  command "curl -v --user admin:admin_pass http://localhost:8080/system/database/setup"
-end
