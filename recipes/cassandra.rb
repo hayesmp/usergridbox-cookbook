@@ -43,6 +43,13 @@ end
 #   command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"
 # end
 
+link "/usr/local/bin/cassandra" do
+  owner node.cassandra.user
+  group node.cassandra.user
+  to    "#{node.cassandra.installation_dir}/bin/cassandra"
+  not_if  "test -L /usr/local/bin/cassandra"
+end
+
 template "/etc/init.d/cassandra" do
   source "cassandra.init.erb"
   owner 'root'
