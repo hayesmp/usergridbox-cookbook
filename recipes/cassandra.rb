@@ -44,8 +44,8 @@ end
 # end
 
 link "/usr/local/bin/cassandra" do
-  owner node.cassandra.user
-  group node.cassandra.user
+  owner "root"
+  group "root"
   to    "#{node.cassandra.installation_dir}/bin/cassandra"
   not_if  "test -L /usr/local/bin/cassandra"
 end
