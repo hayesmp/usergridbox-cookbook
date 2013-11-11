@@ -39,6 +39,17 @@ bash "extract #{tmp}" do
   creates tarball_dir
 end
 
-execute "start cassandra" do
-  command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"
+# execute "start cassandra" do
+#   command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"
+# end
+
+template "/etc/init.d/cassandra" do
+  source "cassandra.init.erb"
+  owner 'root'
+  mode  0755
+end
+
+service "cassandra" do
+  supports :start => true, :stop => true, :restart => true
+  action [:enable, :start]
 end
