@@ -39,10 +39,22 @@ bash "extract #{tmp}" do
   creates tarball_dir
 end
 
-# execute "start cassandra" do
-#   command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"
-# end
+execute "start cassandra" do
+  command "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"
+end
 
+execute "delete /etc/rc.local" do
+  command "rm /etc/rc.local"
+end
+
+template "/etc/rc.local" do
+  source "rc.local.erb"
+  owner 'root'
+  mode  0755
+  variables({:command => "#{Chef::Config[:file_cache_path]}/dsc-cassandra-1.1.11/bin/cassandra"})
+end
+
+=begin
 link "/usr/local/bin/cassandra" do
   owner "root"
   group "root"
@@ -60,3 +72,4 @@ service "cassandra" do
   supports :start => true, :stop => true, :restart => true
   action [:enable, :start]
 end
+=end
