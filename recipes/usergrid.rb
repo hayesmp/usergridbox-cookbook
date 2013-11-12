@@ -13,7 +13,7 @@ include_recipe 'tomcat'
 #include_recipe 'java::oracle'
 #include_recipe 'thrift'
 #include_recipe 'maven'
-include_recipe 'usergridbox::cassandra'
+include_recipe 'cassandra'
 
 git "#{Chef::Config[:file_cache_path]}/usergrid" do
   repository "git://github.com/apigee/usergrid-stack.git"
